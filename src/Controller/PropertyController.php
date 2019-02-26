@@ -35,11 +35,10 @@ class PropertyController extends AbstractController
 
     public function index() : Response
     {
-        $property = $this->repository->find(1);
-        $property->setSold(false);
-        $this->entityManager->flush();
+        $properties = $this->repository->findLatest();
         return $this->render('property/index.html.twig', [
-            'current_menu' => 'properties'
+            'current_menu' => 'properties',
+            compact('properties')
         ]);
     }
 
