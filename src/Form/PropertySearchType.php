@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\MyOption;
 
 
 class PropertySearchType extends AbstractType
@@ -26,6 +28,15 @@ class PropertySearchType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Budget max'
+                ]
+            ])
+            ->add('options', EntityType::class, [
+                'label' => false,
+                'class' => MyOption::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'attr' => [
+                    'placeholder' => 'Options'
                 ]
             ])
         ;
