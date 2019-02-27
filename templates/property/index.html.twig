@@ -2,7 +2,33 @@
 
 {% block title %} Tous nos biens {% endblock %}
 {% block body %}
-    <div class = "container margin-top">
-        <h1>Voir tous nos biens</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class = "col">
+                        {{ form_row(form.minSurface) }}
+                    </div>
+                    <div class = "col">
+                        {{ form_row(form.maxPrice) }}
+                    </div>
+                    <div class = "col">
+                        <button class = "btn btn-secondary">Rechercher</button>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class = "container mt-4">
+        <div class = "row">
+            {% for property in properties %}
+                <div class="col-md-4">
+                    {% include 'property/property.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+          {{ knp_pagination_render(properties) }}
+        </div>
     </div>
 {% endblock %}
