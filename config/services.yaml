@@ -30,3 +30,11 @@ services:
     #     tags: ['controller.service_arguments']
     #     arguments:
     #         $twig: '@twig'
+
+    # App\EventListener\PreUpdateListener:
+    #     tags:
+    #         - { name: doctrine.event_listener, event: preUpdate }
+
+    App\EventListener\ImageCacheSubscriber:
+        tags: 
+            - { name: doctrine.event_subscriber, connection: default }

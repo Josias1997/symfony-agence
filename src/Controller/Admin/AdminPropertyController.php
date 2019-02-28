@@ -9,7 +9,6 @@ use App\Entity\Property;
 use App\Form\PropertyType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\MyOption;
 
 
 class AdminPropertyController extends AbstractController
