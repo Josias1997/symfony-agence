@@ -19,8 +19,14 @@
                     <div class = "text-primary" style = "font-weight: bold; font-size: 4rem;">
                         {{ property.formattedPrice }}
                     </div>
-                    <a  class="btn btn-primary" href="#">Contacter l'agence</a>
-                    <div id="contact-form" class="mt-4">
+                    <a  id="contact-button" class="btn btn-primary" href="#" style="
+                    {% if form.vars.submitted %}
+                        display: none;
+                    {% endif %}">Contacter l'agence</a>
+                    <div id="contact-form" class="mt-4" style="
+                    {% if not form.vars.submitted %}
+                            display: none;
+                    {% endif %}">
                          {% for message in app.flashes('success') %}
                             <div class="alert alert-success" role="alert">
                                 {{ message }}

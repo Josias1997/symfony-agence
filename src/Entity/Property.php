@@ -130,6 +130,16 @@ class Property
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="float", scale=4, precision=6)
+     */
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="float", scale=4, precision=7)
+     */
+    private $longitude;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -400,6 +410,30 @@ class Property
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(float $latitude): self
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(float $longitude): self
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }
